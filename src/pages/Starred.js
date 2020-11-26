@@ -1,10 +1,11 @@
 import React from 'react'
+import MainPageLayout from '../components/layout/MainPageLayout'
 
 const Starred = () => {
   return (
-    <div>
-      this is hgome
-    </div>
+    <MainPageLayout>
+      starred
+    </MainPageLayout>
   )
 }
 
