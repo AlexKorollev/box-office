@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import ActorGrid from '../components/actor/ActorGrid'
 import MainPageLayout from '../components/layout/MainPageLayout'
+import ShowGrid from '../components/show/ShowGrid'
 import {apiGet} from '../misc/config'
 const Home = () => {
   const [input, setInput] = useState('')
@@ -30,13 +32,8 @@ const Home = () => {
       return <div>No results</div>
     } else if (results && results.length) {
       return results[0].show ? 
-        results.map(item => (
-          <div key={item.show.id}>{item.show.name}</div>
-        )) :
-        results.map(item => (
-          <div key={item.person.id}>{item.person.name}</div>
-        )) 
-
+        <ShowGrid data={results}/> : 
+        <ActorGrid data={results}/>
     } else {
       return null
     }
